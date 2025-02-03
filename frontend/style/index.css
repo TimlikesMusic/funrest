@@ -1,113 +1,111 @@
-:root{
-    --darkgreen: #214125;
-    --buttoncolor: #2c2c2c;
-    --textcolor: white;
+/* Root-Variablen für Farben */
+:root {
+    --darkgreen: #214125; /* Dunkelgrün */
+    --buttoncolor: #2c2c2c; /* Buttonfarbe */
+    --textcolor: white; /* Textfarbe */
 }
 
-html {
-    height: 75vh;
+/* Allgemeine Stile */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Heller Hintergrund */
+    color: var(--textcolor); /* Standard-Textfarbe */
     display: flex;
-    justify-content: center;
-    align-items: end;
+    flex-direction: column;
+    min-height: 100vh; /* Ganze Höhe des Viewports */
 }
 
-
-html{
-    background-image: url(../assets/background.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-    background-color: rgb(205, 205, 205);
-    padding-bottom: 10rem;
-}
-
+/* Topbar */
 .navbar {
     display: flex;
-    background: var(--darkgreen);
-    padding: 10px 20px;
-    margin: 0 auto;
-    height: 5vh;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
+    background-color: var(--darkgreen); /* Dunkelgrüner Hintergrund */
+    color: var(--textcolor); /* Weißer Text */
+    padding: 10px 20px;
+}
+
+.FUNREST {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .menu_header {
-    display: flex;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.FUNREST{
-    color: var(--textcolor);
-    font-weight: bold;
-    margin-right: auto;
+    display: flex;
 }
 
 .item_header {
-    margin: 0 2vw;
+    margin-left: 20px;
 }
 
 .item_header a {
     text-decoration: none;
-    color: var(--textcolor);
-    font-weight: bold;
+    color: var(--textcolor); /* Weißer Text */
+    transition: color 0.3s ease;
 }
 
-button {
-    background-color: var(--buttoncolor);
-    color: var(--textcolor);
+.item_header a:hover {
+    color: #ff9800; /* Orange beim Hover */
+}
+
+.button_header {
+    background-color: var(--buttoncolor); /* Dunkler Button */
+    color: var(--textcolor); /* Weißer Text */
     border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.button_header{
-    padding: 10px 20px;
+.button_header:hover {
+    background-color: #444444; /* Etwas helleres Grau beim Hover */
 }
 
-.content{}
-/*---------------------< Footer >-----------------------*/
-.footer{
-    display: flex;
-    background: var(--darkgreen);
-    padding: 10px 20px;
-    justify-content: space-around;
-    margin: 0 auto;
-    height: 5vh;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
+.content{
+    background-image: url(../assets/background.png);
+    background-position-y: 30rem;
+    background-blend-mode: overlay;
+    background-color: grey; /* Dunkelgrüner Hintergrund */
+    height: 80vh;
 }
 
+/* Footer */
+.footer {
+    background-color: var(--darkgreen); /* Dunkelgrüner Hintergrund */
+    color: var(--textcolor); /* Weißer Text */
+    padding: 15px 20px;
+}
 
 .menu_footer {
-    display: flex;
-    justify-content: space-between;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.FUNREST{
-    color: var(--textcolor);
-    margin-right: auto;
+    display: flex;
+    justify-content: center; /* Zentriert den Footer-Inhalt */
 }
 
 .item_footer {
-    margin: 0 2vw;
+    margin-left: 20px;
 }
 
 .item_footer a {
     text-decoration: none;
-    color: var(--textcolor);
-    font-weight: bold;
+    color: var(--textcolor); /* Weißer Text */
+    transition: color 0.3s ease;
+}
+
+.item_footer a:hover {
+    color: #ff9800; /* Orange beim Hover */
+}
+
+/* Utility Klassen (falls nötig) */
+.hidden {
+    display: none !important; /* Zum Verstecken von Elementen */
 }

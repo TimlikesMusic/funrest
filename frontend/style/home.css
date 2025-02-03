@@ -1,28 +1,100 @@
-.search{
-    width: 36rem;
-    height: 4rem;
-    border-radius: 1rem;
-    background-color: var(--darkgreen);
+/* Content-Insel */
+.contentinsel {
+    background-color: var(--darkgreen); /* Dunkelgrüner Hintergrund */
+    color: var(--textcolor); /* Weißer Text */
+    width: 75%;
+    margin: 25% auto; /* Zentriert die Insel horizontal und gibt vertikal Abstand */
+    padding: 15px;
+    padding-top: 5px;
+    border-radius: 10px; /* Abgerundete Ecken */
+    position: relative; /* Ermöglicht absolute Positionierung von Kindern */
+}
+
+/* Formular (zentriert) */
+form {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row; /* Vertikale Ausrichtung der Felder */
     align-items: center;
-
-    form{
-        margin-right: auto;
-        margin-left: 1rem;
-    }
+    justify-content: center;
+    gap: 20px; /* Abstand zwischen den Feldern */
+    width: 70%; /* Breite des Formulars relativ zur Content-Insel */
+    margin-right: auto;
 }
 
-.searchroom{
-    width: 6rem;
-    height: 3rem;
-    border-radius: 0.5rem;
-    font-size: 0.5rem;
-    text-align: center;
-    white-space: nowrap;
+/* Labels über den Eingabefeldern */
+.label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--textcolor); /* Weißer Text */
+    margin-bottom: 5px; /* Abstand zwischen Label und Eingabefeld */
 }
 
-input[type="date"]::before { 
-    content: attr(data-placeholder);
-    width: 100%;
+/* Eingabefelder */
+.inputfield {
+    width: 100%; /* Volle Breite innerhalb des Containers */
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Button unter den Feldern */
+.searchroom {
+    background-color: var(--buttoncolor); /* Dunkler Button-Hintergrund */
+    color: var(--textcolor); /* Weißer Text */
+    border: none;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hover- und Klick-Effekte */
+}
+
+.searchroom:hover {
+    background-color: #444444; /* Etwas helleres Grau beim Hover */
+}
+
+.searchroom:active {
+    transform: scale(0.98); /* Leichtes Drücken beim Klicken */
+}
+
+/* Logo (45° links oben) */
+.logo {
+    position: absolute;
+    top: 15%; /* Über der Content-Insel */
+    left: 10%; /* Links außen */
+    display: flex;
+    flex-direction: row;
+}
+
+.logo_text{
+    margin-top: 95px;
+    margin-left: -50px; 
+}
+
+
+.logo_image {
+    width: 100px; /* Größe des Logos */
+    height: auto; /* Verhältnis beibehalten */
+}
+
+/* Top-Bewertung (45° rechts oben) */
+.topreview {
+    position: absolute;
+    top: -50px; /* Über der Content-Insel */
+    right: -50px; /* Rechts außen */
+    background-color: var(--buttoncolor); /* Dunkler Hintergrund für Kontrast */
+    color: var(--textcolor); /* Weißer Text */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+}
+
+/* Suchbereich (zentriert in der Content-Insel) */
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }

@@ -1,49 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FUNREST</title>
-        <link rel="icon" type="image/x-icon" href="./assets/logo.png">
-        <link rel="stylesheet" href="./style/index.css" />
-        <link rel="stylesheet" href="./style/home.css" />
-    </head>
-    <body>
-        <head>
-            <nav class="navbar">
-                <div class="FUNREST">FUNREST</div>
-                <ul class="menu_header">
-                  <li class="item_header"><a href="#">Leistungen</a></li>
-                  <li class="item_header"><a href="#">Zimmer</a></li>
-                  <li class="item_header"><a href="#">Bewertungen</a></li>
-                  <li class="item_header"><a href="#">Über uns</a></li>
-                </ul>
-                <button type="button" class="button_header" onclick="anmeldung()">Anmeldung</button>
-              </nav>
-        </head>
-        <div class="content">
-            <div class="logo"></div>
-            <div class="topreview"></div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+
+    <title>FUNREST</title>
+    <link rel="icon" type="image/x-icon" href="./assets/logo.png">
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="./style/home.css" />
+</head>
+
+<body>
+    <!-- Topbar -->
+    <header>
+        <nav class="navbar">
+            <div class="FUNREST">FUNREST</div>
+            <ul class="menu_header">
+                <li class="item_header"><a href="#">Leistungen</a></li>
+                <li class="item_header"><a href="#">Zimmer</a></li>
+                <li class="item_header"><a href="#">Bewertungen</a></li>
+                <li class="item_header"><a href="#">Über uns</a></li>
+            </ul>
+            <button type="button" class="button_header" onclick="anmeldung()">Anmeldung</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Logo (45° links oben) -->
+        <div class="logo">
+            <img src="./assets/logo.png" alt="Logo" class="logo_image">
+            <div class="logo_text">UNREST</div>
+        </div>
+
+        <!-- Search Section (zentriert) -->
+        <div class="contentinsel">
             <div class="search">
                 <form>
-                    <input type="date" class="inputfield" placeholder="Check-In">
-                    <input type="date" class="inputfield" placeholder="Check-Out">
-                    <input type="text" class="inputfield" placeholder="Person">
+                    <div>
+                        <label for="checkin" class="label">Check-In</label>
+                        <input value="1.12.2004" type="date" class="inputfield" required>
+                    </div>
+                    <div>
+                        <label for="checkout" class="label">Check-Out</label>
+                        <input value="1.12.2003" type="date" class="inputfield" required>
+                    </div>
+                    <div>
+                        <label for="person" class="label">Person</label>
+                        <input value="Max Mustermann" type="text" class="inputfield" required>
+                    </div>
                 </form>
                 <button class="searchroom" onclick="searchroom()">Zimmer suchen</button>
             </div>
         </div>
-        <footer>
-            <div class="footer">
-                <ul class="menu_footer">
-                    <li class="item_footer"><a href="#">Impressum</a></li>
-                    <li class="item_footer"><a href="#">Kontakt</a></li>
-                    <li class="item_footer"><a href="#">AGB</a></li>
-                </ul>
-            </div>
-        </footer>
-    </body>
+        <!-- Top-Bewertung (45° rechts oben) -->
+        <div class="topreview">
+            Top Bewertung
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <ul class="menu_footer">
+                <li class="item_footer"><a href="./html/impressum.html">Impressum</a></li>
+                <li class="item_footer"><a href="#">Kontakt</a></li>
+                <li class="item_footer"><a href="#">AGB</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="./js/index.js"></script>
     <script src="./js/home.js"></script>
+</body>
+
 </html>
