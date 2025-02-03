@@ -1,0 +1,28 @@
+.search{
+    width: 36rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background-color: var(--darkgreen);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    form{
+        margin-right: auto;
+        margin-left: 1rem;
+    }
+}
+
+.searchroom{
+    width: 6rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    font-size: 0.5rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+input[type="date"]::before { 
+    content: attr(data-placeholder);
+    width: 100%;
+}
