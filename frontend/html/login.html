@@ -9,6 +9,7 @@
     <title>FUNREST</title>
     <link rel="icon" type="image/x-icon" href="../assets/logo.png">
     <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/login.css" />
 </head>
 
 <body>
@@ -22,12 +23,25 @@
                 <li class="item_header"><a href="#">Bewertungen</a></li>
                 <li class="item_header"><a href="#">Über uns</a></li>
             </ul>
-            <button type="button" class="button_header" onclick="anmeldung()">Anmeldung</button>
         </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="content"></main>
+    <main class="content">
+        <div class="contentinsel">
+            <form class="form">
+                <span class="input-span">
+                    <label for="email" class="label">Nutzername / Email</label>
+                    <input type="email" name="email" id="email" /></span>
+                <span class="input-span">
+                    <label for="password" class="label">Password</label>
+                    <input type="password" name="password" id="password" /></span>
+                <span class="span" id="forget"><a href="#">Forgot password?</a></span>
+                <input class="submit" type="submit" value="Log in" />
+                <span class="span">Ich habe noch keinen Account? <a href="#">Hier regristieren</a></span>
+            </form>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -42,6 +56,7 @@
 
     <!-- Scripts -->
     <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 
 </html>
