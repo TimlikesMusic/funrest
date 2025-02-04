@@ -1,9 +1,9 @@
 /* Content-Insel */
 .contentinsel {
-    background-color: var(--darkgreen); /* Dunkelgrüner Hintergrund */
+    background-color: #214125c4; /* Dunkelgrüner Hintergrund */
     color: var(--textcolor); /* Weißer Text */
     width: 75%;
-    margin: 25% auto; /* Zentriert die Insel horizontal und gibt vertikal Abstand */
+    margin: 8% auto; /* Zentriert die Insel horizontal und gibt vertikal Abstand */
     padding: 15px;
     padding-top: 5px;
     border-radius: 10px; /* Abgerundete Ecken */
@@ -61,34 +61,71 @@ form {
 .logo {
     position: absolute;
     top: 15%; /* Über der Content-Insel */
-    left: 10%; /* Links außen */
+    left: 5%; /* Links außen */
     display: flex;
     flex-direction: row;
 }
 
 .logo_text{
-    margin-top: 95px;
-    margin-left: -50px; 
+    margin-top: 215px;
+    margin-left: -110px; 
 }
 
 
 .logo_image {
-    width: 100px; /* Größe des Logos */
+    width: 30%; /* Größe des Logos */
     height: auto; /* Verhältnis beibehalten */
 }
 
+.star{
+    font-size: 14px;
+}
+
+.title{
+    padding-top: 5px;   
+    font-size: 16px;
+}
+.desc{
+    font-size: 10px;
+}
+
+.user{
+    padding-top: 5px;   
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.pb{
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: lightgrey;
+    margin-right: 10px;
+}
+
+.name{
+    font-size: 10px;
+}
+
+.datum{
+    color: lightgrey;
+    font-size: 8px;
+}
 /* Top-Bewertung (45° rechts oben) */
 .topreview {
-    position: absolute;
-    top: -50px; /* Über der Content-Insel */
-    right: -50px; /* Rechts außen */
-    background-color: var(--buttoncolor); /* Dunkler Hintergrund für Kontrast */
-    color: var(--textcolor); /* Weißer Text */
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+    background-color: white; /* Dunkelgrüner Hintergrund */
+    color: black; /* Weißer Text */
+    width: 11%;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: 8%;
+    margin-top: 8%;
+    border-radius: 10px; /* Abgerundete Ecken */
+    position: relative; /* Ermöglicht absolute Positionierung von Kindern */
 }
 
 /* Suchbereich (zentriert in der Content-Insel) */

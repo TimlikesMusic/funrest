@@ -72,9 +72,10 @@ body {
 
 .content{
     background-image: url(../assets/background.png);
+    background-size: 110%;
     background-position-y: 30rem;
-    background-blend-mode: overlay;
-    background-color: grey; /* Dunkelgrüner Hintergrund */
+    background-blend-mode: multiply;
+    background-color: rgb(186, 184, 184); /* Dunkelgrüner Hintergrund */
     height: 80vh;
 }
 
@@ -83,6 +84,7 @@ body {
     background-color: var(--darkgreen); /* Dunkelgrüner Hintergrund */
     color: var(--textcolor); /* Weißer Text */
     padding: 15px 20px;
+    
 }
 
 .menu_footer {
