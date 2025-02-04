@@ -1,3 +1,3 @@
-function anmeldung(){
-    window.location.assign("html/login.html")
+function setlocation(url){
+    window.location.assign(url)
 }
