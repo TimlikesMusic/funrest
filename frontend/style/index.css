@@ -14,8 +14,8 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: var(--darkgreen);
     line-height: 1.6;
-    background-color: #f4f4f4; /* Heller Hintergrund */
     color: var(--textcolor); /* Standard-Textfarbe */
     display: flex;
     flex-direction: column;

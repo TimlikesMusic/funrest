@@ -28,8 +28,56 @@
     </header>
 
     <!-- Main Content -->
-    <main class="content"></main>
-
+    <main class="content">
+        <div class="contentinsel">
+            <form class="form">
+                <div class="inputfields">
+                    <span class="input-span">
+                        <input type="text" placeholder="Vorname*" name="vorname" id="vorname" required/>
+                    </span>
+                    <span class="input-span">
+                        <input type="password" placeholder="Passwort*" name="passwort" id="passwort" required/>
+                    </span>
+                    <span class="input-span">
+                        <input type="text" pattern="(\+)?\d{13,20}" name="telefon" id="telefon" placeholder="Telefon"/>
+                    </span>
+                    <span class="input-span">
+                        <input type="text" name="strasse" id="strasse" placeholder="Straße*" required/>
+                    </span>
+                </div>
+                <div class="inputfields">
+                    <span class="input-span">
+                        <input type="text" name="nachname" id="nachname" placeholder="Nachname*" required/>
+                    </span>
+                    <span class="input-span">
+                        <input type="password" name="passwort" id="passwort" placeholder="Passwort Wiederholen*" required/>
+                    </span>
+                    <span class="input-span">
+                        <input type="text" name="gender" placeholder="Geschlecht" id="gender" />
+                    </span>
+                    <span class="input-span">
+                        <input type="text" name="Orts" placeholder="Ort*" id="Orts" />
+                    </span>
+                </div>
+                <div class="inputfields">
+                    <span class="input-span">
+                        <input type="text" name="nutzername" id="nutzername" placeholder="Nutzername*" required/>
+                    </span>
+                    <span class="input-span">
+                        <input type="text" name="contry" id="contry" placeholder="Land*" required/>
+                    </span>
+                    <span class="input-span">
+                        <input type="text" pattern="\d{2}.\d{2}.\d{4}" name="brithdate" placeholder="Geburtsdatum" id="gender" />
+                    </span>
+                    <span class="input-span">
+                        <input type="text" pattern="[0-9]{5}" name="plz" placeholder="Postleitzahl*" id="plz" />
+                    </span>
+                </div>
+                <span class="hinweis">Pflichtenangaben sind mit * gekennzeichnet</span>
+                <input class="submit" type="submit" value="Regristieren" />
+            </form>
+        </div>
+    </main>
     <!-- Footer -->
     <footer>
         <div class="footer">
@@ -43,6 +91,7 @@
 
     <!-- Scripts -->
     <script src="../js/index.js"></script>
+    <script src="../js/regsiter.js"></script>
 </body>
 
 </html>
