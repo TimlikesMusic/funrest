@@ -79,6 +79,22 @@ body {
     height: 80vh;
 }
 
+.contentinsel {
+    background-color: #214125c4;
+    /* Dunkelgrüner Hintergrund */
+    color: var(--textcolor);
+    /* Weißer Text */
+    width: 45%;
+    margin: 8% auto;
+    /* Zentriert die Insel horizontal und gibt vertikal Abstand */
+    padding: 15px;
+    padding-top: 5px;
+    border-radius: 10px;
+    /* Abgerundete Ecken */
+    position: relative;
+    /* Ermöglicht absolute Positionierung von Kindern */
+}
+
 /* Footer */
 .footer {
     background-color: var(--darkgreen); /* Dunkelgrüner Hintergrund */
