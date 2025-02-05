@@ -2,7 +2,7 @@
 :root {
     --darkgreen: #214125; /* Dunkelgrün */
     --buttoncolor: #2c2c2c; /* Buttonfarbe */
-    --textcolor: white; /* Textfarbe */
+    --textcolor: rgb(231, 231, 231); /* Textfarbe */
 }
 
 /* Allgemeine Stile */
@@ -76,7 +76,6 @@ body {
     background-position-y: 30rem;
     background-blend-mode: multiply;
     background-color: rgb(186, 184, 184); /* Dunkelgrüner Hintergrund */
-    height: 80vh;
 }
 
 .contentinsel {
