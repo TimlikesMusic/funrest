@@ -1,8 +1,7 @@
-
-user = {
+{
     "user": 
         {
-            "1": {
+            "user5050": {
                     "id":1,
                     "name": "Egon",
                     "surname": "Nachname",
@@ -18,7 +17,7 @@ user = {
                     "regular": 1
                 },
 
-            "2": {
+            "use1": {
                     "id":1,
                     "name": "Egon",
                     "surname": "Nachname",
@@ -32,11 +31,9 @@ user = {
                     "gender": "m/w/d",
                     "role": "user",
                     "regular": 0
-                },
-        }
-}
+                }
+        },
 
-rating = {
     "rating": 
         {
         "1023": 
