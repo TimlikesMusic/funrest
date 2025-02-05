@@ -1,0 +1,53 @@
+
+user = {
+    "user": 
+        {
+            "1": {
+                    "id":1,
+                    "name": "Egon",
+                    "surname": "Nachname",
+                    "username": "unknownuser123",
+                    "password": "1234",
+                    "phone": "+49182718727",
+                    "postcode": "91817",
+                    "street": "Street 1",
+                    "city": "City",
+                    "country": "Utopia",
+                    "gender": "m/w/d",
+                    "role": "admin",
+                    "regular": 1
+                },
+
+            "2": {
+                    "id":1,
+                    "name": "Egon",
+                    "surname": "Nachname",
+                    "username": "unknownuser123",
+                    "password": "1234",
+                    "phone": "+49182718727",
+                    "postcode": "91817",
+                    "street": "Street 1",
+                    "city": "City",
+                    "country": "Utopia",
+                    "gender": "m/w/d",
+                    "role": "user",
+                    "regular": 0
+                },
+        }
+}
+
+rating = {
+    "rating": 
+        {
+        "1023": 
+            {
+                "id": 1,
+                "title": "Super Hotel",
+                "description": "Lorem ipsum",
+                "stars": 4,
+                "approved": 1,
+                "user": 1212
+
+            }
+        }
+    }
