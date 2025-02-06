@@ -78,13 +78,17 @@ body {
     background-color: rgb(186, 184, 184); /* Dunkelgrüner Hintergrund */
 }
 
+.content::-webkit-scrollbar {
+    display: none;
+}
+
 .contentinsel {
     background-color: #214125c4;
     /* Dunkelgrüner Hintergrund */
     color: var(--textcolor);
     /* Weißer Text */
     width: 45%;
-    margin: 8% auto;
+    margin: 5.5% auto;
     /* Zentriert die Insel horizontal und gibt vertikal Abstand */
     padding: 15px;
     padding-top: 5px;

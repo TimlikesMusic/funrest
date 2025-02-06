@@ -4,6 +4,15 @@
     background-position-y: 30rem;
     background-blend-mode: overlay;
     background-color: rgb(54, 54, 54); /* Dunkelgrüner Hintergrund */
+    overflow: scroll;
+    height: 80vh;
+}
+
+.h1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    margin-bottom: 2rem;
 }
 
 .header{
@@ -25,10 +34,7 @@
 
 .flexchild{
     flex-grow: 2;
-    flex-flow: column wrap;
-    flex-wrap: wrap;
-    white-space: pre;
-
+    margin-top: 1rem;
 }
 
 .flexchild a{
@@ -36,14 +42,33 @@
     color: white;
 }
 
-ol li {
+.numeric {
     list-style-type: decimal;
-    white-space: pre;
-
+    white-space: pre-wrap;
+    list-style-position: outside;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
 }
 
-ul li {
+.bulletpoints {
     list-style-type: disc;
-    white-space: pre;
+    white-space: pre-wrap;
+    list-style-position: outside;
+    margin: 1rem;
 }
-  
+
+.text{
+    margin-left: 5rem;
+    padding: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.unsortetlist{
+    margin-top:2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
