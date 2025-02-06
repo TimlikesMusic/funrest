@@ -1,0 +1,41 @@
+
+Qualitätsplan für unser Softwareprojekt "Funrest"
+
+1. Projektübersicht
+Projektname: [Projektname]
+Projektbeschreibung: [Kurze Beschreibung der Software und ihrer Funktionen]
+Projektleiter: [Name des Projektleiters]
+Zeitraum: [Start- und Enddatum des Projekts]
+
+2. Qualitätsziele
+Sicherstellung, dass die Software den funktionalen und nicht-funktionalen Anforderungen entspricht.
+Minimierung von Fehlern und Sicherheitsanfälligkeiten.
+Erhöhung der Benutzerzufriedenheit durch eine benutzerfreundliche und fehlerfreie Anwendung.
+
+3. Qualitätsanforderungen
+Funktionale Anforderungen: [Detaillierte Beschreibung der funktionalen Anforderungen, die die Software erfüllen muss]
+Nicht-funktionale Anforderungen: [Leistungsanforderungen, Sicherheitsanforderungen, Usability-Anforderungen, etc.]
+
+4. Qualitätskontrollmethoden
+Code-Reviews: Regelmäßige Überprüfungen des Quellcodes durch Teammitglieder zur Identifizierung von Fehlern und zur Sicherstellung der Codequalität.
+Automatisierte Tests: Implementierung von Unit-Tests, Integrationstests und End-to-End-Tests zur automatisierten Überprüfung der Softwarequalität.
+Manuelle Tests: Durchführung von manuellen Tests, einschließlich Funktionstests, Usability-Tests und Regressionstests.
+
+5. Qualitätssicherungsmaßnahmen
+Teststrategie: Entwicklung einer umfassenden Teststrategie, die alle Testarten und -methoden abdeckt.
+Testumgebung: Einrichtung einer stabilen Testumgebung, die die Produktionsumgebung simuliert.
+Dokumentation: Erstellung und Pflege von Testdokumentationen, einschließlich Testplänen, Testfällen und Testberichten.
+
+6. Rollen und Verantwortlichkeiten
+Projektleiter: Gesamtverantwortung für die Qualitätssicherung im Projekt.
+Qualitätsbeauftragter: Überwachung der Qualitätssicherungsmaßnahmen und Koordination der Testaktivitäten.
+Entwicklungsteam: Verantwortung für die Einhaltung der Qualitätsstandards während der Entwicklung.
+Tester: Durchführung von Tests und Dokumentation der Ergebnisse.
+
+7. Berichterstattung
+Qualitätsberichte: Regelmäßige Berichterstattung über den Stand der Qualitätssicherung an alle Stakeholder, einschließlich Testergebnissen und identifizierten Problemen.
+Abschlussbericht: Erstellung eines Abschlussberichts, der die Qualität der Software zusammenfasst und Empfehlungen für zukünftige Projekte gibt.
+
+8. Kontinuierliche Verbesserung
+Lessons Learned: Dokumentation von Erfahrungen und Erkenntnissen aus dem Projekt zur Verbesserung zukünftiger Softwareprojekte.
+Feedback-Mechanismen: Implementierung von Mechanismen zur Sammlung von Feedback von Benutzern und Teammitgliedern zur kontinuierlichen Verbesserung der Software.
