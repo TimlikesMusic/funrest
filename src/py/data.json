@@ -1,50 +1,96 @@
 {
-    "user": 
-        {
-            "user5050": {
-                    "id":1,
-                    "name": "Egon",
-                    "surname": "Nachname",
-                    "username": "unknownuser123",
-                    "password": "1234",
-                    "phone": "+49182718727",
-                    "postcode": "91817",
-                    "street": "Street 1",
-                    "city": "City",
-                    "country": "Utopia",
-                    "gender": "m/w/d",
-                    "role": "admin",
-                    "regular": 1
-                },
-
-            "use1": {
-                    "id":1,
-                    "name": "Egon",
-                    "surname": "Nachname",
-                    "username": "unknownuser123",
-                    "password": "1234",
-                    "phone": "+49182718727",
-                    "postcode": "91817",
-                    "street": "Street 1",
-                    "city": "City",
-                    "country": "Utopia",
-                    "gender": "m/w/d",
-                    "role": "user",
-                    "regular": 0
-                }
+    "user": {
+        "user5050": {
+            "id": 1,
+            "name": "Egon",
+            "surname": "Nachname",
+            "username": "unknownuser123",
+            "password": "1234",
+            "phone": "+49182718727",
+            "postcode": "91817",
+            "street": "Street 1",
+            "city": "City",
+            "country": "Utopia",
+            "gender": "m/w/d",
+            "role": "admin",
+            "regular": 1
         },
-
-    "rating": 
-        {
-        "1023": 
-            {
-                "id": 1,
-                "title": "Super Hotel",
-                "description": "Lorem ipsum",
-                "stars": 4,
-                "approved": 1,
-                "user": 1212
-
-            }
+        "use1": {
+            "id": 1,
+            "name": "Egon",
+            "surname": "Nachname",
+            "username": "unknownuser123",
+            "password": "1234",
+            "phone": "+49182718727",
+            "postcode": "91817",
+            "street": "Street 1",
+            "city": "City",
+            "country": "Utopia",
+            "gender": "m/w/d",
+            "role": "user",
+            "regular": 0
+        }
+    },
+    "rating": {
+        "1023": {
+            "id": 1,
+            "title": "Super Hotel",
+            "description": "Lorem ipsum",
+            "stars": 4,
+            "approved": 1,
+            "user": 1212
+        }
+    },
+    "allUser": {
+        "use1": {
+            "id": 1,
+            "name": "Egon",
+            "surname": "Nachname",
+            "username": "unknownuser123"
+        },
+        "user5050": {
+            "id": 1,
+            "name": "Egon",
+            "surname": "Nachname",
+            "username": "unknownuser123"
+        }
+    },
+    "zimmer": {
+        "zimmer1": {
+            "category": "Standart",
+            "type": "doppel",
+            "preis": "20€",
+            "desc": "Hier kommt der Zimmerbeschreibung hin"
+        },
+        "zimmer2": {
+            "category": "Premium",
+            "type": "doppel",
+            "preis": "50€",
+            "desc": "Hier kommt der Zimmerbeschreibung hin"
+        },
+        "zimmer3": {
+            "category": "Luxus",
+            "type": "doppel",
+            "preis": "80€",
+            "desc": "Hier kommt der Zimmerbeschreibung hin"
+        },
+        "zimmer4": {
+            "category": "Standart",
+            "type": "einzel",
+            "preis": "10€",
+            "desc": "Hier kommt der Zimmerbeschreibung hin"
+        },
+        "zimmer5": {
+            "category": "Premium",
+            "type": "einzel",
+            "preis": "35€",
+            "desc": "Hier kommt der Zimmerbeschreibung hin"
+        },
+        "zimmer6": {
+            "category": "Luxus",
+            "type": "einzel",
+            "preis": "50€",
+            "desc": "Hier kommt der Zimmerbeschreibung hin"
         }
     }
+}
