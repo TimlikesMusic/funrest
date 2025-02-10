@@ -9,7 +9,7 @@
     <title>FUNREST</title>
     <link rel="icon" type="image/x-icon" href="../assets/logo.png">
     <link rel="stylesheet" href="../style/index.css" />
-    <link rel="stylesheet" href="../style/login.css" />
+    <link rel="stylesheet" href="../style/forgett.css" />
 </head>
 
 <body>
@@ -29,17 +29,13 @@
     <!-- Main Content -->
     <main class="content">
         <div class="contentinsel">
-            <form class="form">
-                <span class="input-span">
-                    <label for="email" class="label">Nutzername / Email</label>
-                    <input type="email" name="email" id="email" /></span>
-                <span class="input-span">
-                    <label for="password" class="label">Password</label>
-                    <input type="password" name="password" id="password" /></span>
-                <span class="span" id="forget"><a href="./forgett.html">Passwort vergessen?</a></span>
-                <input class="submit" type="submit" value="Log in" />
-                <span class="span">Ich habe noch keinen Account? <a href="./register.html">Hier regristieren</a></span>
-            </form>
+            <span class="input-span">
+                Bitte geben Sie unten Ihre E-Mail-Adresse ein, um einen Link zum Zurücksetzen des Passworts zu erhalten
+            </span>
+            <span class="input-span">
+                <label for="email" class="label">email</label>
+                <input type="text" pattern="\w\.?\w{1,}@\w{1,}\.\w{1,}" name="email" id="email" /></span>
+            <input class="submit" type="submit" value="Setze mein Passwort zurück" />
         </div>
     </main>
 
@@ -56,7 +52,7 @@
 
     <!-- Scripts -->
     <script src="../js/index.js"></script>
-    <script src="../js/login.js"></script>
+    <script src="../js/forgett.js"></script>
 </body>
 
 </html>
