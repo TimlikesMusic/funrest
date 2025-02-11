@@ -1,0 +1,74 @@
+.content{
+    background-image: url(../assets/background.png);
+    background-size: 110%;
+    background-position-y: 30rem;
+    background-blend-mode: overlay;
+    background-color: rgb(54, 54, 54); /* Dunkelgrüner Hintergrund */
+    overflow: scroll;
+    height: 80vh;
+}
+
+.h1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    margin-bottom: 2rem;
+}
+
+.header{
+    margin-top: 2.5%;
+    margin-bottom: 2%;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.flexcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin: 5px;
+    margin-left: 3%;
+    margin-bottom: 10%;
+}
+
+.flexchild{
+    flex-grow: 2;
+    margin-top: 1rem;
+}
+
+.flexchild a{
+    text-decoration: none;
+    color: white;
+}
+
+.numeric {
+    list-style-type: decimal;
+    white-space: pre-wrap;
+    list-style-position: outside;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+.bulletpoints {
+    list-style-type: disc;
+    white-space: pre-wrap;
+    list-style-position: outside;
+    margin: 1rem;
+}
+
+.text{
+    margin-left: 5rem;
+    padding: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.unsortetlist{
+    margin-top:2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
