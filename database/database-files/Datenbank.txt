@@ -1,0 +1,87 @@
+
+
+Lastenheft
+
+EPIC: Datenbankverwaltung
+
+Tabelle: User
+UserID = int <<PK>>
+Firstname = string
+Lastname = string
+Gender = string
+Birthdate = string
+Postcode = int
+City = string
+Street = string
+Phone = int
+RegularGuest = bool
+
+Tabelle: Booking
+BookingID = int <<PK>>
+UserID = int <<FK>>
+Room = string <<FK>>
+BookingDate = datetime
+status = string
+
+Tabelle: Hotelroom
+Category = string
+Price = int
+Room = string
+
+Tabelle: Role
+RoleID = int
+RoleAdmin = string
+RoleGast = string
+RoleMitarbeiter = string
+RoleKunde = string
+
+Tabelle: Permissions
+PermissionID = string
+SearchForRooms = string
+BookRooms = string
+RateSite = string
+CreateBill = string
+CreateEntity = string
+DeleteEntity = string
+ChangeEntity = string
+
+Tabelle: UserRole
+UserRoleID
+UserID = int
+RoleID = int
+
+Tabelle: RolePermission
+RolePermissionID = string
+RoleID = string
+PermissionID = string
+
+
+
+
+- Wir haben uns für einen "string" entschieden, da wir davon ausgehen, dass wir unsere Datenbank um 
+mehrere Kategorien erweitern müssen in der Zukunft.
+
+- Die Validierung des "strings" muss dann über das Frontend stattfinden, in dem wir die "string"-Eingabe des User abfangen.
+Es wäre auch möglich nur bestimmte "strings" dem User zur Verfügung zu stellen.
+
+- Wenn wir uns für einen "bool" entschieden hätten, wäre zwar die Validierung einfacher aber wir müssten die Datenbank 
+manipulieren sobald wir mehrere Kategorien anlegen wollen.
+
+Fazit: Uns war die Erweiterbarkeit wichtiger, als die einfache Validierung über die Datenbank
+
+
+
+
+
+Hotelkette besitzt mehrere Hotels
+Hotels haben mehrere Zimmern
+Jedes Zimmer hat ein Bestimmte Kategorie (Luxus, Standard, Premium)
+Jedes Zimmer hat ein Bestimmte Preiskategorie (Luxus, Standard, Premium)
+Jeder Zimmer ist Entweder einzelzimmer oder doppelzimmer
+Gast erfassen Daten: Adresse, Geschlecht, Geburtsdatum, Name, Vorname, Stammgast (bool)
+Kunde erhält eine Rechnung
+Rechnung beinhaltet Art des Zimmers, Buchungszeitraum und kosten
+Möglichkeit nach Freie zimmer zu suchen und zu Buchen auf homepage
+Modelmitarbeiter kann Rechnung herstellen
+Berechtigungskonzept => Gast, Kunde, Mitarbeiter, Admin
+
