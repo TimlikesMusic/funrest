@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+funrest/app.py
+funrest.egg-info/PKG-INFO
+funrest.egg-info/SOURCES.txt
+funrest.egg-info/dependency_links.txt
+funrest.egg-info/requires.txt
+funrest.egg-info/top_level.txt
+funrest/src/py/httpapi.py
+funrest/src/py/interface.py
+funrest/src/py/main.py

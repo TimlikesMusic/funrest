@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+
+    <title>FUNREST</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='login.css') }}" />
+</head>
+
+<body>
+    <!-- Topbar -->
+    <header>
+        <nav class="navbar">
+            <div class="FUNREST">FUNREST</div>
+            <ul class="menu_header">
+                <li class="item_header"><a href="#">Leistungen</a></li>
+                <li class="item_header"><a href="#">Zimmer</a></li>
+                <li class="item_header"><a href="#">Bewertungen</a></li>
+                <li class="item_header"><a href="#">Über uns</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="contentinsel">
+            <form class="form">
+                <span class="input-span">
+                    <label for="email" class="label">Nutzername / Email</label>
+                    <input type="email" name="email" id="email" /></span>
+                <span class="input-span">
+                    <label for="password" class="label">Password</label>
+                    <input type="password" name="password" id="password" /></span>
+                <span class="span" id="forget"><a href="./forget">Passwort vergessen?</a></span>
+                <input class="submit" type="submit" value="Log in" />
+                <span class="span">Ich habe noch keinen Account? <a href="./register">Hier regristieren</a></span>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <ul class="menu_footer">
+                <li class="item_footer"><a href="./impressum">Impressum</a></li>
+                <li class="item_footer"><a href="#">Kontakt</a></li>
+                <li class="item_footer"><a href="./agb">AGB</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function setlocation(url){
+            window.location.assign(url)
+        }
+    </script>
+</body>
+
+</html>

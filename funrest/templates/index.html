@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+
+    <title>FUNREST</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='home.css') }}" />
+</head>
+
+<body>
+    <!-- Topbar -->
+    <header>
+        <nav class="navbar">
+            <div class="FUNREST">FUNREST</div>
+            <ul class="menu_header">
+                <li class="item_header"><a href="#">Leistungen</a></li>
+                <li class="item_header"><a href="#">Zimmer</a></li>
+                <li class="item_header"><a href="#">Bewertungen</a></li>
+                <li class="item_header"><a href="#">Über uns</a></li>
+            </ul>
+            <button type="button" class="button_header" onclick="setlocation('/login')">Anmeldung</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Logo (45° links oben) -->
+        <div class="logo">
+            <img src="{{ url_for('static',filename='assets/logo.png') }}" alt="Logo" class="logo_image">
+            <div class="logo_text">UNREST</div>
+        </div>
+        <!-- Bewertungen -->
+        <div class="topreview">
+            <div class="Bewertungstar">
+                <div class="star">
+                    &#9734; &#9734; &#9734; &#9734; &#9734;
+                </div>
+                <div class="title">Super Hotel</div>
+                <div class="desc">Das ist ein tolles Hotel</div>
+                <div class="user">
+                    <div class="pb"></div>
+                    <div class="info">
+                        <div class="name">Paul Parker</div>
+                        <div class="datum">1.1.1970</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div"></div>
+        <!-- Search Section (zentriert) -->
+        <div class="contentinsel">
+            <div class="search">
+                <form>
+                    <div>
+                        <label for="checkin" class="label">Check-In</label>
+                        <input value="1.12.2004" type="date" class="inputfield" required>
+                    </div>
+                    <div>
+                        <label for="checkout" class="label">Check-Out</label>
+                        <input value="1.12.2003" type="date" class="inputfield">
+                    </div>
+                    <div>
+                        <label for="person" class="label">Person</label>
+                        <input value="Max Mustermann" type="text" class="inputfield" required>
+                    </div>
+                </form>
+                <button class="searchroom" onclick="">Zimmer suchen</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            <ul class="menu_footer">
+                <li class="item_footer"><a href="/impressum">Impressum</a></li>
+                <li class="item_footer"><a href="#">Kontakt</a></li>
+                <li class="item_footer"><a href="/agb">AGB</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function setlocation(url){
+            window.location.assign(url)
+        }
+    </script>
+</body>
+
+</html>

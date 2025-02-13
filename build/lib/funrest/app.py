@@ -16,7 +16,7 @@ def register_page():
 
 @app.route('/forget')
 def forget_page():
-    return render_template('forget.html')
+    return render_template('register.html')
 
 @app.route('/impressum')
 def impressum_page():
