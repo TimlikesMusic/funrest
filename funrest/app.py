@@ -15,9 +15,15 @@ db = SQLAlchemy(model_class=Base)
 class user(db.Model):
     userid: Mapped[int] = mapped_column(primary_key=True)
 
+
+
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'C:\xampp\mysql\data\funrestdatabase'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root@localhost:4508/funrestdatabase'
 db.init_app(app)
+
+@app.route('/')
+def homepage():
+    return render_template('index.html')
 
 @app.route("/test")
 def test():

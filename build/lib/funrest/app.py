@@ -1,10 +1,27 @@
-from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask import(
+    jsonify,
+    render_template,
+    request,
+)
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+class Base(DeclarativeBase):
+    pass
+
+db = SQLAlchemy(model_class=Base)
+
+class user(db.Model):
+    userid: Mapped[int] = mapped_column(primary_key=True)
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = 'C:\xampp\mysql\data\funrestdatabase'
+db.init_app(app)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route("/test")
+def test():
+    connection = db()
 
 @app.route('/login')
 def login_page():
@@ -16,7 +33,7 @@ def register_page():
 
 @app.route('/forget')
 def forget_page():
-    return render_template('register.html')
+    return render_template('forget.html')
 
 @app.route('/impressum')
 def impressum_page():
