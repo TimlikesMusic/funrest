@@ -1,6 +1,8 @@
 README.md
 pyproject.toml
+funrest/__init__.py
 funrest/app.py
+funrest/db.py
 funrest.egg-info/PKG-INFO
 funrest.egg-info/SOURCES.txt
 funrest.egg-info/dependency_links.txt

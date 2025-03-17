@@ -16,6 +16,8 @@ db = SQLAlchemy(model_class=Base)
 class user(db.Model):
     userid: Mapped[int] = mapped_column(primary_key=True)
 
+
+
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = '127.0.0.1'
 app.config['MYSQL_USER'] = 'root'
@@ -25,6 +27,13 @@ app.config['MYSQL_DB'] = 'geeklogin'
 mysql = MySQL(app)
 #app.config["SQLALCHEMY_DATABASE_URI"] = 'C:\xampp\mysql\data\funrestdatabase'
 #db.init_app(app)
+=======
+app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root@localhost:4508/funrestdatabase'
+db.init_app(app)
+
+@app.route('/')
+def homepage():
+    return render_template('index.html')
 
 @app.route("/test")
 def test():
@@ -70,8 +79,6 @@ def impressum_page():
 @app.route('/agb')
 def agb_page():
     return render_template('agb.html')
-
-
 
 """
 Test für JSON-Format

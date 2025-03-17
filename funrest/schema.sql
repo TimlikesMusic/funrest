@@ -1,6 +1,8 @@
 -- -----------------------------------------------------
 -- Table `FunrestDatabase`.`user`
 -- -----------------------------------------------------
+CREATE DATABASE IF NOT EXISTS `funrestdatabase`;
+
 CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`user` (
   `userid` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NOT NULL,
@@ -30,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`role` (
   `rolegast` VARCHAR(45) NULL,
   `rolemitarbeiter` VARCHAR(45) NULL,
   `rolekunde` VARCHAR(45) NULL,
-  PRIMARY KEY (`roleid`))
+  PRIMARY KEY (`roleid`)); 
 
 
 -- -----------------------------------------------------
@@ -47,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`permission` (
   `createentity` VARCHAR(45) NULL,
   `deleteentity` VARCHAR(45) NULL,
   `changeentity` VARCHAR(45) NULL,
-  PRIMARY KEY (`permissionid`))
+  PRIMARY KEY (`permissionid`));
 
 
 -- -----------------------------------------------------
@@ -71,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`userrole` (
     FOREIGN KEY (`roleid_fk`)
     REFERENCES `FunrestDatabase`.`role` (`roleid`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -95,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`rolepermission` (
     FOREIGN KEY (`fk_roleid`)
     REFERENCES `FunrestDatabase`.`role` (`roleid`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -108,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`hotelroom` (
   `roomname` VARCHAR(255) NULL,
   `kategorie` VARCHAR(255) NULL,
   `preis` VARCHAR(255) NULL,
-  PRIMARY KEY (`roomid`))
+  PRIMARY KEY (`roomid`));
 
 
 -- -----------------------------------------------------
@@ -134,4 +136,4 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`booking` (
     FOREIGN KEY (`fk_roomid`)
     REFERENCES `FunrestDatabase`.`hotelroom` (`roomid`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION);
