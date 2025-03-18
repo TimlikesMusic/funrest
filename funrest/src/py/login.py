@@ -7,26 +7,25 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
 
-app = Flask(__name__, template_folder="test")
+app = Flask(__name__, template_folder="../templates")
 app.config['SECRET_KEY'] = 'your_secret_key'
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_DB'] = 'funresttest'
+app.config['MYSQL_DB'] = 'funrestdatabase'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:)vs@Q?95yPFBP5L@localhost:8080/funrestdatabase'
 
 mysql = MySQL(app)
 
-
-
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'login'
 
 class User(UserMixin):
     def __init__(self, id):
         self.id = id
 
-users = {'user1': {'password': 'password1'}, 'user2': {'password': 'password2'}}
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -41,6 +40,10 @@ def login():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM user')
         user_list = cursor.fetchall()
+
+        print(user_list)
+        print(username)
+        print(password)
 
         for user in user_list:
             if user['username'] == username and user['password'] == password:
