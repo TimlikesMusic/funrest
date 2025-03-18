@@ -3,10 +3,17 @@
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
 -- -----------------------------------------------------
 -- Schema FunrestDatabase
 -- -----------------------------------------------------
+-- FunrestDatabase for our Project
 
+-- -----------------------------------------------------
+-- Schema FunrestDatabase
+--
+-- FunrestDatabase for our Project
+-- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `FunrestDatabase` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
 USE `FunrestDatabase` ;
 
@@ -32,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`user` (
   `regularguest` TINYINT NULL,
   PRIMARY KEY (`userid`));
 
+
 -- -----------------------------------------------------
 -- Table `FunrestDatabase`.`role`
 -- -----------------------------------------------------
@@ -45,6 +53,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`role` (
   `rolekunde` VARCHAR(45) NULL,
   PRIMARY KEY (`roleid`))
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `FunrestDatabase`.`permission`
@@ -62,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`permission` (
   `changeentity` VARCHAR(45) NULL,
   PRIMARY KEY (`permissionid`))
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `FunrestDatabase`.`userrole`
@@ -87,6 +97,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`userrole` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `FunrestDatabase`.`rolepermission`
 -- -----------------------------------------------------
@@ -111,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`rolepermission` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `FunrestDatabase`.`hotelroom`
 -- -----------------------------------------------------
@@ -123,6 +135,7 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`hotelroom` (
   `preis` VARCHAR(255) NULL,
   PRIMARY KEY (`roomid`))
 ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `FunrestDatabase`.`booking`
@@ -149,6 +162,28 @@ CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`booking` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `FunrestDatabase`.`review`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `FunrestDatabase`.`review` ;
+
+CREATE TABLE IF NOT EXISTS `FunrestDatabase`.`review` (
+  `reviewid` INT NOT NULL AUTO_INCREMENT,
+  `reviewtitle` VARCHAR(45) NULL,
+  `reviewdescription` VARCHAR(45) NULL,
+  `reviewdate` VARCHAR(45) NULL,
+  `userid_fk` INT NULL,
+  PRIMARY KEY (`reviewid`),
+  INDEX `userid_fk_rv_idx` (`userid_fk` ASC),
+  CONSTRAINT `userid_fk_rv`
+    FOREIGN KEY (`userid_fk`)
+    REFERENCES `FunrestDatabase`.`user` (`userid`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
