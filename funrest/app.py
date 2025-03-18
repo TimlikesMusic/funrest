@@ -11,6 +11,9 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+import json
+import time
+import datetime
 
 
 
@@ -45,14 +48,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user')
-        user_list = cursor.fetchall()
-
-        print(user_list)
-        print(username)
-        print(password)
+        user_list = get_users()
 
         for user in user_list:
             if user['username'] == username and user['password'] == password:
@@ -76,15 +72,11 @@ def logout():
 @app.route('/')
 def homepage():
     return render_template('index.html')
-
-@app.route("/test")
-def test():
-    pass
-    #connection = db()
     
 
 @app.route('/register')
 def register_page():
+    add_user(2, "max_pro", "maxpro@gmail.com", "pleasehash", datetime.datetime.now(), "Max", "Proton", "m", "02.05.1999", "91052", "Erlangen", "Maxstraße 15", "017354673291", "1")
     return render_template('register.html')
 
 @app.route('/forget')
@@ -99,21 +91,50 @@ def impressum_page():
 def agb_page():
     return render_template('agb.html')
 
-"""
-Test für JSON-Format
-"""
-incomes = [
-    { 'description': 'salary', 'amount': 5000 }
-]
+@app.route('/bewertungen')
+def bewertungen_page():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM bewertungen;')
 
-@app.route('/incomes')
-def get_incomes():
-    return jsonify(incomes)
+    bewertungen_list = cursor.fetchall()
+    return json.dumps(bewertungen_list)
 
-@app.route('/incomes', methods=['POST'])
-def add_income():
-    incomes.append(request.get_json())
-    return '', 204
+@app.route('/rooms', methods = ['GET'])
+def rooms():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM hotelroom;')
+    room_list = cursor.fetchall()
+
+    print(room_list)
+    return json.dumps(room_list)
+
+@app.route('/ratings', methods = ['GET'])
+def ratings():
+    ratings = get_ratings()
+    return ratings
+
+
+def get_ratings():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM rating;')
+    rating_list = cursor.fetchall()
+
+    print(rating_list)
+    return json.dumps(rating_list)
+
+def get_users():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('SELECT * FROM users;')
+    rating_list = cursor.fetchall()
+
+    print(rating_list)
+    return rating_list
+
+def add_user(user_id, username, email, password, create_time, firstname, lastname, gender, birthdate, postcode, city, street, phone, regularguest):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute(f"INSERT INTO `user` (`userid`, `username`, `email`, `password`, `create_time`, `firstname`, `lastname`, `gender`, `birthdate`, `postcode`, `city`, `street`, `phone`, `regularguest`) VALUES ('{user_id}', '{username}', '{email}', '{password}', '{create_time}', '{firstname}', '{lastname}', '{gender}', '{birthdate}', '{postcode}', '{city}', '{street}', '{phone}', '{regularguest}');")
+    print("added")
+
 
 
 

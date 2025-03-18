@@ -24,6 +24,10 @@ dependencies = [
   "flask-login>=0.6",
   "gunicorn>=23.0",
   "mariadb>=1.1",
+  "mysql.connector>=2.2",
+  "flask_sqlalchemy>=3.1",
+  "mysql>=0.0.2",
+  "flask_mysqldb>=2.0",
 ]
 
 [build-system]
