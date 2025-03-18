@@ -4,31 +4,74 @@ from flask import(
     request,
 )
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-
-class Base(DeclarativeBase):
-    pass
-
-db = SQLAlchemy(model_class=Base)
-
-class user(db.Model):
-    userid: Mapped[int] = mapped_column(primary_key=True)
+from flask import Flask, render_template, redirect, url_for, request, jsonify
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
 
 
 
-app = Flask(__name__)
-app.config['MYSQL_HOST'] = '127.0.0.1'
+
+
+app = Flask(__name__, template_folder="templates")
+app.config['SECRET_KEY'] = 'your_secret_key'
+
+app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ')vs@Q?95yPFBP5L'
-app.config['MYSQL_DB'] = 'geeklogin'
- 
+app.config['MYSQL_DB'] = 'funrestdatabase'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:)vs@Q?95yPFBP5L@localhost:8080/funrestdatabase'
+
 mysql = MySQL(app)
-#app.config["SQLALCHEMY_DATABASE_URI"] = 'C:\xampp\mysql\data\funrestdatabase'
-#db.init_app(app)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root@localhost:4508/funrestdatabase'
-db.init_app(app)
+
+
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
+class User(UserMixin):
+    def __init__(self, id):
+        self.id = id
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User(user_id)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user')
+        user_list = cursor.fetchall()
+
+        print(user_list)
+        print(username)
+        print(password)
+
+        for user in user_list:
+            if user['username'] == username and user['password'] == password:
+                user = User(username)
+                login_user(user)
+                return redirect(url_for('protected'))
+            return 'Invalid credentials'
+    return render_template('login.html')
+
+@app.route('/protected')
+@login_required
+def protected():
+    return f'Hello, {current_user.id}! You are logged in.'
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 
 @app.route('/')
 def homepage():
@@ -38,29 +81,6 @@ def homepage():
 def test():
     pass
     #connection = db()
-
-@app.route('/login')
-def login_page():
-    return render_template('login.html')
-
-@app.route('/login/loguser', methods=['GET', 'POST'])
-def login():
-    msg = ''
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-        username = request.form['username']
-        password = request.form['password']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = % s AND password = % s', (username, password, ))
-        account = cursor.fetchone()
-        if account:
-            session['loggedin'] = True
-            session['id'] = account['id']
-            session['username'] = account['username']
-            msg = 'Logged in successfully !'
-            return render_template('index.html', msg = msg)
-        else:
-            msg = 'Incorrect username / password !'
-    return render_template('login.html', msg = msg)
     
 
 @app.route('/register')
@@ -95,4 +115,6 @@ def add_income():
     incomes.append(request.get_json())
     return '', 204
 
-app.run()
+
+
+app.run(debug=True)
