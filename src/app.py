@@ -4,12 +4,11 @@ from flask import(
     request,
 )
 import re
-import os
 import json
 import time
 import datetime
 import MySQLdb.cursors
-from flask import Flask, send_from_directory
+from flask import Flask
 from flask_cors import CORS
 from flask_mysqldb import MySQL
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -114,7 +113,22 @@ def ratings():
     ratings = get_ratings()
     return ratings
 
-
+@app.route('/about')
+def about_page():
+    return render_template('about.html')
+ 
+@app.route('/leistungen')
+def leistungen_page():
+    return render_template('leistungen.html')
+ 
+@app.route('/reviews')
+def reviews_page():
+    return render_template('reviews.html')
+ 
+@app.route('/rooms')
+def rooms_page():
+    return render_template('rooms.html')
+ 
 def get_ratings():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM rating;')
