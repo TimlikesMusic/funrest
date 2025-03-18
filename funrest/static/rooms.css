@@ -1,0 +1,25 @@
+    
+.tile-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    padding: 6em 10em;
+    .tile{
+        background: white;
+        border-radius: 4px;
+        margin: 2em;
+        padding: 1em;
+        color: black;
+    
+        .image{
+            background-color: grey;
+            aspect-ratio: 3/2;
+            margin-bottom: 1em;
+        }
+        .description{
+            color: var(--textcolor);
+        }
+    }
+    
+}

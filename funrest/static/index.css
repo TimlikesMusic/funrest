@@ -30,6 +30,8 @@ body {
     background-color: var(--darkgreen); /* Dunkelgrüner Hintergrund */
     color: var(--textcolor); /* Weißer Text */
     padding: 10px 20px;
+    position: sticky;
+    top: 0;
 }
 
 .FUNREST {
@@ -56,6 +58,15 @@ body {
     color: #ff9800; /* Orange beim Hover */
 }
 
+.home-button{
+    color: white;
+    text-decoration: none;
+    :active{
+        color: white;
+        text-decoration: none;
+    }
+}
+
 .button_header {
     background-color: var(--buttoncolor); /* Dunkler Button */
     color: var(--textcolor); /* Weißer Text */
@@ -73,9 +84,6 @@ body {
 .content{
     background-image: url(./assets/background.png);
     background-size: 110%;
-    background-position-y: 30rem;
-    background-blend-mode: multiply;
-    background-color: rgb(186, 184, 184); /* Dunkelgrüner Hintergrund */
 }
 
 .content::-webkit-scrollbar {
