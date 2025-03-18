@@ -3,23 +3,24 @@ from flask import(
     render_template,
     request,
 )
-from flask import Flask
+import re
+import os
+import json
+import time
+import datetime
+import MySQLdb.cursors
+from flask import Flask, send_from_directory
+from flask_cors import CORS
 from flask_mysqldb import MySQL
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from flask import Flask, render_template, redirect, url_for, request, jsonify
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
-import re
-import json
-import time
-import datetime
 
 
 
 
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 app.config['SECRET_KEY'] = 'your_secret_key'
 
 app.config['MYSQL_HOST'] = 'localhost'
@@ -138,4 +139,4 @@ def add_user(user_id, username, email, password, create_time, firstname, lastnam
 
 
 
-app.run(debug=True)
+app.run(debug=False)

@@ -1,14 +1,10 @@
 from flask import Flask 
-
-from . import db
-from .app import main
+import src.app as app
 
 def create_app():
     app = Flask(__name__)
 
     app.config.from_prefixed_env()
-
-    db.init_app(app)
-    app.register_blueprint(main)
+    app.register_blueprint()
 
     return app
