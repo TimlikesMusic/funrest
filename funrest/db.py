@@ -21,3 +21,6 @@ def close_db(e=None):
 
     if db is not None and db.is_connected():
         db.close()
+
+get_db()
+close_db()

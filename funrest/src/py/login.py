@@ -1,8 +1,22 @@
-from flask import Flask, render_template, redirect, url_for, request
+####PRE###########
+#pylint::disable = all
+
+from flask import Flask, render_template, redirect, url_for, request, jsonify
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+import re
 
 app = Flask(__name__, template_folder="test")
 app.config['SECRET_KEY'] = 'your_secret_key'
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_DB'] = 'funresttest'
+
+mysql = MySQL(app)
+
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -23,11 +37,17 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if username in users and users[username]['password'] == password:
-            user = User(username)
-            login_user(user)
-            return redirect(url_for('protected'))
-        return 'Invalid credentials'
+
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM user')
+        user_list = cursor.fetchall()
+
+        for user in user_list:
+            if user['username'] == username and user['password'] == password:
+                user = User(username)
+                login_user(user)
+                return redirect(url_for('protected'))
+            return 'Invalid credentials'
     return render_template('login.html')
 
 @app.route('/protected')

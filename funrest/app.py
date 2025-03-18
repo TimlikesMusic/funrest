@@ -27,7 +27,6 @@ app.config['MYSQL_DB'] = 'geeklogin'
 mysql = MySQL(app)
 #app.config["SQLALCHEMY_DATABASE_URI"] = 'C:\xampp\mysql\data\funrestdatabase'
 #db.init_app(app)
-=======
 app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root@localhost:4508/funrestdatabase'
 db.init_app(app)
 
