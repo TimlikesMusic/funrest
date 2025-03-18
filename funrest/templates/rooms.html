@@ -31,59 +31,7 @@
     <main class="content">
 
         <div class="tile-container">
-            <div class="tile">
-                <div class="image"></div>
-                <div class="title"><h4>room1</h4></div>
-                <div class="price"><b>12€</b></div>
-                <div class="description">testetsetsetset</div>
-
-            </div>
-
-           
-          <script>
-            fetch('funrest/src/py/data.json')
-            .then(response => response.json())
-            .then(jsonData => {
-                console.log(jsonData);
-                
-                // Durchlaufe die "zimmer"-Daten
-                Object.values(jsonData.zimmer).forEach(zimmer => {
-                    // Container-Element erstellen
-                    const container = document.createElement('div');
-                    container.classList.add('tile');
-
-                    // Bild-Element erstellen
-                    const image = document.createElement('div');
-                    image.classList.add('image');
-                    image.textContent = 'Bild: ';
-                    container.appendChild(image);
-
-                    // Titel-Element erstellen
-                    const title = document.createElement('div');
-                    title.classList.add('title');
-                    title.textContent = `${zimmer.category} (${zimmer.type})`;
-                    container.appendChild(title);
-
-                    // Preis-Element erstellen
-                    const price = document.createElement('div');
-                    price.classList.add('price');
-                    price.textContent = `Preis: ${zimmer.preis}`;
-                    container.appendChild(price);
-
-                    // Beschreibung-Element erstellen
-                    const description = document.createElement('div');
-                    description.classList.add('description');
-                    description.textContent = `Beschreibung: ${zimmer.desc}`;
-                    container.appendChild(description);
-
-                    // Container in das Tile-Container-Div einfügen
-                    document.querySelector('.tile-container').appendChild(container);
-                });
-            })
-            .catch(error => console.error('Fehler beim Laden der JSON-Daten:', error));
-            console.log(jsonData);
-
-        </script>
+            <script src="static/js/fetch_rooms.js"></script>
         </div>
 
     </main>
