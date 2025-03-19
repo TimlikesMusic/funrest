@@ -18,6 +18,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from flask import Flask, render_template, redirect, url_for, request, jsonify
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from argon2 import PasswordHasher, exceptions
+import random
 
 
 hasher = PasswordHasher()
@@ -147,15 +148,16 @@ def get_ratings():
 def get_users():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM users;')
-    rating_list = cursor.fetchall()
+    user_list = cursor.fetchall()
+    return user_list
 
-    print(rating_list)
-    return rating_list
+def add_user(cursor, userid, username, email, password, firstname, lastname, gender, birthdate, postcode, city, street, phone, regularguest):
+    password = hasher.hash(password)
+    cursor.execute(f"INSERT INTO `user` (`userid`, `username`, `email`, `password`, `create_time`, `firstname`, `lastname`, `gender`, `birthdate`, `postcode`, `city`, `street`, `phone`, `regularguest`) VALUES ('{userid}', '{username}', '{email}', '{password}',current_timestamp(), '{firstname}', '{lastname}', '{gender}', '{birthdate}', '{postcode}', '{city}', '{street}', '{phone}', '{regularguest}');")
+    cursor.connection.commit()
 
-def add_user(user_id, username, email, password, create_time, firstname, lastname, gender, birthdate, postcode, city, street, phone, regularguest):
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute(f"INSERT INTO `user` (`userid`, `username`, `email`, `password`, `create_time`, `firstname`, `lastname`, `gender`, `birthdate`, `postcode`, `city`, `street`, `phone`, `regularguest`) VALUES ('{user_id}', '{username}', '{email}', '{password}', '{create_time}', '{firstname}', '{lastname}', '{gender}', '{birthdate}', '{postcode}', '{city}', '{street}', '{phone}', '{regularguest}');")
-    print("added")
+    return f"added user: {userid}"
+
 
 def get_app():
     return app

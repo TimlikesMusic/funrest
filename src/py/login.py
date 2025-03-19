@@ -20,6 +20,7 @@ mysql = MySQL(app)
 
 
 
+
 hasher = PasswordHasher()
 class User(UserMixin):
     def __init__(self, id):
@@ -36,12 +37,11 @@ def load_user(user_id):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user')
+        cursor.execute('SELECT * FROM user;')
         user_list = cursor.fetchall()
 
         print(user_list)
@@ -70,6 +70,24 @@ def protected():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+@app.route('/add', methods=['GET', 'POST'])
+def add_user():
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    password = hasher.hash("peter")
+    add_user(cursor, 140, "lebronjames", "lebonbon@gmail.com", password, "lebron", "james", "m", "2022-01-01", "91828", "miami", "18th street", "01921818", "1")
+
+    return "test"
+
+def add_user(cursor, userid, username, email, password, firstname, lastname, gender, birthdate, postcode, city, street, phone, regularguest):
+    cursor.execute(f"INSERT INTO `user` (`userid`, `username`, `email`, `password`, `create_time`, `firstname`, `lastname`, `gender`, `birthdate`, `postcode`, `city`, `street`, `phone`, `regularguest`) VALUES ('{userid}', '{username}', '{email}', '{password}',current_timestamp(), '{firstname}', '{lastname}', '{gender}', '{birthdate}', '{postcode}', '{city}', '{street}', '{phone}', '{regularguest}');")
+    cursor.connection.commit()
+
+def add_room():
+    pass
+
+def remove_room():
+    pass
 
 if __name__ == '__main__':
     app.run(debug=True)
