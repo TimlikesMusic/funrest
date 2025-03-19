@@ -158,6 +158,35 @@ def add_user(cursor, userid, username, email, password, firstname, lastname, gen
 
     return f"added user: {userid}"
 
+def remove_user(cursor, username):
+    cursor.execute(f"DELETE FROM user WHERE username='{username}';")
+    cursor.connection.commit()
+
+def add_room(cursor, roomid, roomname, kategorie, preis):
+    cursor.execute(f"INSERT INTO `hotelroom` (`roomid`, `roomname`, `kategorie`, `preis`) VALUES ('{roomid}', '{roomname}', '{kategorie}', '{preis}');")
+    cursor.connection.commit()
+
+def remove_room(cursor, roomid):
+    cursor.execute(f"DELETE FROM hotelroom WHERE roomid='{roomid}';")
+    cursor.connection.commit()
+
+def add_review(cursor, reviewid, title, desc, date, userid):
+    cursor.execute(f"INSERT INTO `hotelroom` (`reviewid`, `title`, `desc`, `date`, `userid`) VALUES ('{reviewid}', '{title}', '{desc}', '{date}', '{userid}');")
+    cursor.connection.commit()
+
+
+def remove_review(cursor, reviewid):
+    cursor.execute(f"DELETE FROM review WHERE reviewid='{reviewid}';")
+    cursor.connection.commit()
+
+def select_reviews(cursor):
+    cursor.execute(f"SELECT * FROM review';")
+    result = cursor.fetchall()
+
+    return json.dumps(result)
+
+
+
 
 def get_app():
     return app
