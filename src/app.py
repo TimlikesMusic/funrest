@@ -157,7 +157,5 @@ def add_user(user_id, username, email, password, create_time, firstname, lastnam
     cursor.execute(f"INSERT INTO `user` (`userid`, `username`, `email`, `password`, `create_time`, `firstname`, `lastname`, `gender`, `birthdate`, `postcode`, `city`, `street`, `phone`, `regularguest`) VALUES ('{user_id}', '{username}', '{email}', '{password}', '{create_time}', '{firstname}', '{lastname}', '{gender}', '{birthdate}', '{postcode}', '{city}', '{street}', '{phone}', '{regularguest}');")
     print("added")
 
-
-
-
-app.run(debug=False)
+def get_app():
+    return app
