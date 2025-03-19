@@ -30,6 +30,10 @@ body {
     background-color: var(--darkgreen); /* Dunkelgrüner Hintergrund */
     color: var(--textcolor); /* Weißer Text */
     padding: 10px 20px;
+
+}
+
+header{
     position: sticky;
     top: 0;
 }

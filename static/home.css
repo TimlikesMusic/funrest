@@ -1,5 +1,6 @@
 /* Formular (zentriert) */
 form {
+    padding: 1em;
     display: flex;
     flex-direction: row; /* Vertikale Ausrichtung der Felder */
     align-items: center;
@@ -7,6 +8,14 @@ form {
     gap: 20px; /* Abstand zwischen den Feldern */
     width: 70%; /* Breite des Formulars relativ zur Content-Insel */
     margin-right: auto;
+}
+
+.content{
+    min-height: 100vh;
+}
+
+.contentinsel {
+    box-shadow: 3px 3px 6px 0px black;
 }
 
 /* Labels über den Eingabefeldern */

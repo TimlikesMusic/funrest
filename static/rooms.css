@@ -16,9 +16,11 @@
             font-weight: 700;
         }
         .image{
-            background-color: grey;
+            /* background-color: grey; */
             aspect-ratio: 3/2;
             margin-bottom: 1em;
+            background-image: url('./assets/dummy/hotelzimmer2.jpg');
+            background-size: contain;
         }
         .description{
             color: var(--textcolor);

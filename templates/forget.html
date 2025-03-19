@@ -29,13 +29,16 @@
     <!-- Main Content -->
     <main class="content">
         <div class="contentinsel">
-            <span class="input-span">
-                Bitte geben Sie unten Ihre E-Mail-Adresse ein, um einen Link zum Zurücksetzen des Passworts zu erhalten
-            </span>
-            <span class="input-span">
-                <label for="email" class="label">email</label>
-                <input type="text" pattern="\w\.?\w{1,}@\w{1,}\.\w{1,}" name="email" id="email" /></span>
-            <input class="submit" type="submit" value="Setze mein Passwort zurück" />
+            <div class="container">
+                <h1>Passwort Vergessen</h1>
+                <span class="input-span">
+                    Bitte geben Sie unten Ihre E-Mail-Adresse ein, um einen Link zum Zurücksetzen des Passworts zu erhalten
+                </span>
+                <span class="input-span">
+                    <label for="email" class="label email-label">E-Mail-Adresse:</label>
+                    <input type="text" pattern="\w\.?\w{1,}@\w{1,}\.\w{1,}" name="email" id="email" /></span>
+                <input class="submit" type="submit" value="Setze mein Passwort zurück" />
+            </div>
         </div>
     </main>
 
