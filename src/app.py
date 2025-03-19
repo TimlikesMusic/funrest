@@ -84,7 +84,10 @@ def homepage():
 
 @app.route('/register')
 def register_page():
-    add_user(2, "max_pro", "maxpro@gmail.com", "pleasehash", datetime.datetime.now(), "Max", "Proton", "m", "02.05.1999", "91052", "Erlangen", "Maxstraße 15", "017354673291", "1")
+    
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    password = hasher.hash("lebonbon")
+    add_user(cursor, "lebronjames", "lebonbon@gmail.com", password, "lebron", "james", "m", "2022-01-01", "91828", "miami", "18th street", "01921818", "1")
     return render_template('register.html')
 
 @app.route('/forget')
@@ -151,27 +154,27 @@ def get_users():
     user_list = cursor.fetchall()
     return user_list
 
-def add_user(cursor, userid, username, email, password, firstname, lastname, gender, birthdate, postcode, city, street, phone, regularguest):
+def add_user(cursor, username, email, password, firstname, lastname, gender, birthdate, postcode, city, street, phone, regularguest):
     password = hasher.hash(password)
-    cursor.execute(f"INSERT INTO `user` (`userid`, `username`, `email`, `password`, `create_time`, `firstname`, `lastname`, `gender`, `birthdate`, `postcode`, `city`, `street`, `phone`, `regularguest`) VALUES ('{userid}', '{username}', '{email}', '{password}',current_timestamp(), '{firstname}', '{lastname}', '{gender}', '{birthdate}', '{postcode}', '{city}', '{street}', '{phone}', '{regularguest}');")
+    cursor.execute(f"INSERT INTO `user` (`username`, `email`, `password`, `create_time`, `firstname`, `lastname`, `gender`, `birthdate`, `postcode`, `city`, `street`, `phone`, `regularguest`) VALUES ('{username}', '{email}', '{password}',current_timestamp(), '{firstname}', '{lastname}', '{gender}', '{birthdate}', '{postcode}', '{city}', '{street}', '{phone}', '{regularguest}');")
     cursor.connection.commit()
 
-    return f"added user: {userid}"
+    return f"added user: {username}"
 
 def remove_user(cursor, username):
     cursor.execute(f"DELETE FROM user WHERE username='{username}';")
     cursor.connection.commit()
 
-def add_room(cursor, roomid, roomname, kategorie, preis):
-    cursor.execute(f"INSERT INTO `hotelroom` (`roomid`, `roomname`, `kategorie`, `preis`) VALUES ('{roomid}', '{roomname}', '{kategorie}', '{preis}');")
+def add_room(cursor, roomname, kategorie, preis):
+    cursor.execute(f"INSERT INTO `hotelroom` (`roomname`, `kategorie`, `preis`) VALUES ('{roomname}', '{kategorie}', '{preis}');")
     cursor.connection.commit()
 
 def remove_room(cursor, roomid):
     cursor.execute(f"DELETE FROM hotelroom WHERE roomid='{roomid}';")
     cursor.connection.commit()
 
-def add_review(cursor, reviewid, title, desc, date, userid):
-    cursor.execute(f"INSERT INTO `hotelroom` (`reviewid`, `title`, `desc`, `date`, `userid`) VALUES ('{reviewid}', '{title}', '{desc}', '{date}', '{userid}');")
+def add_review(cursor, title, desc, date, userid):
+    cursor.execute(f"INSERT INTO `hotelroom` (`title`, `desc`, `date`, `userid`) VALUES ('{title}', '{desc}', '{date}', '{userid}');")
     cursor.connection.commit()
 
 
@@ -180,10 +183,19 @@ def remove_review(cursor, reviewid):
     cursor.connection.commit()
 
 def select_reviews(cursor):
-    cursor.execute(f"SELECT * FROM review';")
+    cursor.execute(f"SELECT * FROM review;")
     result = cursor.fetchall()
 
     return json.dumps(result)
+
+def select_review(cursor, id):
+    cursor.execute(f"SELECT * FROM review WHERE reviewid = '{id}';")
+    result = cursor.fetchall()
+    return json.dumps(result)
+
+
+
+
 
 
 
