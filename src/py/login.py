@@ -6,8 +6,9 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+from argon2 import PasswordHasher
 
-app = Flask(__name__, template_folder="../templates")
+app = Flask(__name__, template_folder="test")
 app.config['SECRET_KEY'] = 'your_secret_key'
 
 app.config['MYSQL_HOST'] = 'localhost'
@@ -18,6 +19,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:)vs@Q?95yPFBP5L@localhost:
 mysql = MySQL(app)
 
 
+
+hasher = PasswordHasher()
 class User(UserMixin):
     def __init__(self, id):
         self.id = id
@@ -46,11 +49,15 @@ def login():
         print(password)
 
         for user in user_list:
-            if user['username'] == username and user['password'] == password:
-                user = User(username)
-                login_user(user)
-                return redirect(url_for('protected'))
-            return 'Invalid credentials'
+            try:
+                if user['username'] == username and hasher.verify(user['password'], password):
+                    user = User(username)
+                    login_user(user)
+                    return redirect(url_for('protected'))
+                return 'Invalid credentials'
+            
+            except:
+                return 'invalid credentials'
     return render_template('login.html')
 
 @app.route('/protected')

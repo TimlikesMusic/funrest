@@ -1,3 +1,6 @@
+####PRE###########
+#pylint::disable = all
+
 from flask import(
     jsonify,
     render_template,
@@ -14,9 +17,10 @@ from flask_mysqldb import MySQL
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from flask import Flask, render_template, redirect, url_for, request, jsonify
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from argon2 import PasswordHasher, exceptions
 
 
-
+hasher = PasswordHasher()
 
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
@@ -51,11 +55,14 @@ def login():
         user_list = get_users()
 
         for user in user_list:
-            if user['username'] == username and user['password'] == password:
-                user = User(username)
-                login_user(user)
-                return redirect(url_for('protected'))
-            return 'Invalid credentials'
+            try:
+                if user['username'] == username and hasher.verify(user['password'], password):
+                    user = User(username)
+                    login_user(user)
+                    return redirect(url_for('protected'))
+                return 'Invalid credentials'
+            except:
+                return 'Invalid credentials'
     return render_template('login.html')
 
 @app.route('/protected')
