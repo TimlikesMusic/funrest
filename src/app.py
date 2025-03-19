@@ -51,19 +51,30 @@ def load_user(user_id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username')
+        password = request.form.get('password')
+
         user_list = get_users()
+        print(user_list)
+        retmsg = { "msg": "Invalid credentials", "code": 401 }  # Standard-Fehlermeldung setzen
 
         for user in user_list:
             try:
+                print(f"\n {user['username']} eingegebene Username {username} \n verify {hasher.verify(user['password'], password)}")
                 if user['username'] == username and hasher.verify(user['password'], password):
+                    print("gefunden")
                     user = User(username)
                     login_user(user)
                     return redirect(url_for('protected'))
-                return 'Invalid credentials'
-            except:
-                return 'Invalid credentials'
+                else:
+                    print("fail")
+                    retmsg = { "msg": "Invalid Username or Password", "code": 200 }
+
+            except Exception as e:
+                print(f"Login-Fehler: {e}")
+                retmsg = { "msg": "Invalid credentials", "code": 401 }
+
+        return jsonify(retmsg["msg"]), retmsg["code"] 
     return render_template('login.html')
 
 @app.route('/protected')
