@@ -1,0 +1,9 @@
+.detail-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .room-detail-content{
+        margin: 6em 2em;
+    }
+}

@@ -56,10 +56,11 @@
         .title{
             font-weight: 700;
         }
+        .detail-link:hover{
+            cursor: pointer;
+        }
         .image-standard, .image-luxus, .image-premium {
-            /* aspect-ratio: 3/2; */
             margin-bottom: 1em;
-            
             background-size: contain;
         }
         .image-standard{

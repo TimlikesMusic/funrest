@@ -226,6 +226,11 @@ def get_room(roomid):
     cursor.close()
     return jsonify(room)
 
+@app.route('/room_detail/<int:roomid>')
+def room_detail(roomid):
+    return render_template('room-detail.html', roomid=roomid)
+
+
 @app.route('/edit_room', methods=['POST'])
 def edit_room():
     data = request.json

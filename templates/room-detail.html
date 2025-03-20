@@ -9,39 +9,38 @@
     <title>FUNREST</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/logo.png') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static',filename='admin.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='detail.css') }}" />
 </head>
 
 <body>
     <!-- Topbar -->
     <header>
         <nav class="navbar">
-            <a href="./admin" class="home-button"><div class="FUNREST">FUNREST</div></a>
-            <!-- <ul class="menu_header">
-                <li class="item_header"><a href="./leistungen">Leistungen</a></li>
-                <li class="item_header"><a href="./rooms">Zimmer</a></li>
-                <li class="item_header"><a href="./reviews">Bewertungen</a></li>
-                <li class="item_header"><a href="./about">Über uns</a></li>
-            </ul> -->
-            <!-- <button type="button" class="button_header" onclick="setlocation('login')">Anmeldung</button> -->
+            <a href="./" class="home-button"><div class="FUNREST">FUNREST</div></a>
+            <ul class="menu_header">
+                <li class="item_header"><a href="../leistungen">Leistungen</a></li>
+                <li class="item_header"><a href="../rooms">Zimmer</a></li>
+                <li class="item_header"><a href="../reviews">Bewertungen</a></li>
+                <li class="item_header"><a href="../about">Über uns</a></li>
+            </ul>
+            <button type="button" class="button_header" onclick="setlocation('login')">Anmeldung</button>
         </nav>
     </header>
 
     <!-- Main Content -->
-    <main>
-        <div class="container">
-            <div class="button-list">
-                <a href="./admin/admin-reviews"><button>Bewertungen Freigeben</button></a>
-                <a href="./admin/admin-reciped"><button>Rechnung ausstellen</button></a>
-                <a href="./admin/admin-edit"><button>Daten anpassen</button></a>
+    <main class="detail-content">
+        <div class="detail-container">
+            <div class="room-detail-content">
+                <script src="../static/js/fetch_room_detail.js"></script>
             </div>
         </div>
         
-        
+    
+
     </main>
 
     <!-- Footer -->
-    <!-- <footer>
+    <footer>
         <div class="footer">
             <ul class="menu_footer">
                 <li class="item_footer"><a href="./impressum">Impressum</a></li>
@@ -49,7 +48,7 @@
                 <li class="item_footer"><a href="./agb">AGB</a></li>
             </ul>
         </div>
-    </footer> -->
+    </footer>
 </body>
 
 <script>

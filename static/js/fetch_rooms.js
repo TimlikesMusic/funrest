@@ -4,8 +4,16 @@ fetch('/rooms-list')
     .then(jsonData => {
         
         jsonData.forEach(hotelroom => {
+            
             const container = document.createElement('div');
             container.classList.add('tile');
+            
+
+            const link = document.createElement('a');
+            link.classList.add('detail-link')
+            link.href = `/room_detail/${hotelroom.roomid}`;
+
+            container.appendChild(link);
 
      
             const image = document.createElement('div');
@@ -17,7 +25,7 @@ fetch('/rooms-list')
                 image.classList.add('image-premium');
             }
            
-            container.appendChild(image);
+            link.appendChild(image);
 
             const title = document.createElement('div');
             title.classList.add('title');
