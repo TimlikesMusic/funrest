@@ -202,6 +202,48 @@ def add_room(cursor, roomname, kategorie, preis):
     cursor.execute(f"INSERT INTO `hotelroom` (`roomname`, `kategorie`, `preis`) VALUES ('{roomname}', '{kategorie}', '{preis}');")
     cursor.connection.commit()
 
+@app.route('/add_room', methods=['POST'])
+def add_room_endpoint():
+    data = request.json
+    roomname = data.get('roomname')
+    kategorie = data.get('kategorie')
+    preis = data.get('preis')
+
+    if roomname and kategorie and preis:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        add_room(cursor, roomname, kategorie, preis)  # Deine Funktion zum Hinzufügen des Zimmers
+        cursor.close()  # Cursor nach der Ausführung schließen
+        return jsonify({"message": "Room added successfully"}), 200
+    else:
+        return jsonify({"message": "Missing required fields"}), 400
+    
+
+@app.route('/get_room/<int:roomid>', methods=['GET'])
+def get_room(roomid):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("SELECT * FROM hotelroom WHERE roomid = %s", (roomid,))
+    room = cursor.fetchone()
+    cursor.close()
+    return jsonify(room)
+
+@app.route('/edit_room', methods=['POST'])
+def edit_room():
+    data = request.json
+    roomid = data.get('roomid')
+    roomname = data.get('roomname')
+    kategorie = data.get('kategorie')
+    preis = data.get('preis')
+
+    cursor = mysql.connection.cursor()
+    cursor.execute("""
+        UPDATE hotelroom
+        SET roomname = %s, kategorie = %s, preis = %s
+        WHERE roomid = %s
+    """, (roomname, kategorie, preis, roomid))
+    mysql.connection.commit()
+    cursor.close()
+    return jsonify({"message": "Room updated successfully"}), 200
+    
 def remove_room(cursor, roomid):
     cursor.execute(f"DELETE FROM hotelroom WHERE roomid='{roomid}';")
     cursor.connection.commit()

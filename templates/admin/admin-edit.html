@@ -10,13 +10,14 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/logo.png') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static',filename='rooms.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='admin.css') }}" />
 </head>
 
 <body>
     <!-- Topbar -->
     <header>
         <nav class="navbar">
-            <a href="./" class="home-button"><div class="FUNREST">FUNREST</div></a>
+            <a href="../" class="home-button"><div class="FUNREST">FUNREST</div></a>
             <!-- <ul class="menu_header">
                 <li class="item_header"><a href="./leistungen">Leistungen</a></li>
                 <li class="item_header"><a href="./rooms">Zimmer</a></li>
@@ -29,6 +30,10 @@
 
     <!-- Main Content -->
     <main class="content">
+        <div class="addContainer">
+            <button id="addBtn">Raum Hinzufügen</button>
+        </div>
+        
         <div class="admin-tile-container">
              <script src="../../static/js/fetch_rooms_admin.js"></script>
         </div>
