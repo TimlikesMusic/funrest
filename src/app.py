@@ -19,6 +19,7 @@ from flask import Flask, render_template, redirect, url_for, request, jsonify
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from argon2 import PasswordHasher, exceptions
 import random
+import sqlite3
 
 
 hasher = PasswordHasher()
@@ -121,7 +122,7 @@ def bewertungen_page():
     bewertungen_list = cursor.fetchall()
     return json.dumps(bewertungen_list)
 
-@app.route('/rooms', methods = ['GET'])
+@app.route('/rooms-list', methods = ['GET'])
 def rooms():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('SELECT * FROM hotelroom;')
@@ -150,6 +151,27 @@ def reviews_page():
 @app.route('/rooms')
 def rooms_page():
     return render_template('rooms.html')
+
+@app.route('/admin')
+def admin_page():
+    return render_template('admin.html')
+
+@app.route('/admin/admin-reviews')
+def admin_reviews_page():
+    return render_template('admin/admin-reviews.html')
+
+@app.route('/admin/admin-reciped')
+def admin_reciped_page():
+    return render_template('admin/admin-reciped.html')
+
+@app.route('/admin/admin-edit')
+def admin_edit_page():
+    return render_template('admin/admin-edit.html')
+
+@app.route('/contact')
+def contact_page():
+    return render_template('contact.html')
+ 
  
 def get_ratings():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -183,6 +205,16 @@ def add_room(cursor, roomname, kategorie, preis):
 def remove_room(cursor, roomid):
     cursor.execute(f"DELETE FROM hotelroom WHERE roomid='{roomid}';")
     cursor.connection.commit()
+
+@app.route('/remove_room', methods=['POST'])
+def remove_room_endpoint():
+    roomid = request.json.get('roomid')
+    if roomid:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)  # MySQL-Cursor verwenden
+        remove_room(cursor, roomid)  # Deine Funktion zum Löschen des Zimmers aufrufen
+        cursor.close()  # Cursor nach der Ausführung schließen
+        return jsonify({"message": "Room deleted successfully"}), 200
+    return jsonify({"message": "Room ID missing"}), 400
 
 def add_review(cursor, title, desc, date, userid):
     cursor.execute(f"INSERT INTO `hotelroom` (`title`, `desc`, `date`, `userid`) VALUES ('{title}', '{desc}', '{date}', '{userid}');")

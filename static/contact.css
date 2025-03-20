@@ -1,0 +1,114 @@
+/* From Uiverse.io by bociKond */
+.contentinsel{
+    width: 65%
+}
+
+.form {
+    --bg-light: #efefef;
+    --bg-dark: #838282;
+    --clr: #58bc82;
+    --clr-alpha: #9c9c9c60;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.inputfields{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.form .input-span {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form input[type="email"],
+.form input[type="text"],
+.form input[type="password"] {
+    border-radius: 3rem;
+    padding: 0.5rem 1.25rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: white;
+    outline: 2px solid var(--bg-dark);
+}
+
+.form input[type="email"]:focus,
+.form input[type="password"]:focus {
+    outline: 2px solid var(--clr);
+}
+
+.form .submit {
+    padding: 1rem 0.75rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 0.5rem;
+    border-radius: 3rem;
+    background-color: var(--buttoncolor);
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form .submit:hover {
+    background-color: #444444; /* Etwas helleres Grau beim Hover */
+}
+
+.span {
+    text-decoration: none;
+    color: var(--bg-dark);
+    font-size: 12px;
+}
+
+#forget{
+    font-size: 16px;
+}
+
+#forget a{
+    color: lightgrey;
+}
+
+#forget a:hover {
+    color: #efefef;
+}
+
+.span a {
+    color: var(--bg-dark);
+}
+
+.span a:hover {
+    color:  #efefef;
+}
+
+.hinweis {
+    text-decoration: none;
+    /* color: var(--bg-dark); */
+    font-size: 16px;
+}
+
+textarea{
+    border-radius: 4px;
+    padding: 1em;
+    border: none;
+    resize: vertical;
+}

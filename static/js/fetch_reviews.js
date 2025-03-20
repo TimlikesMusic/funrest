@@ -1,11 +1,11 @@
 // script.js
-fetch('./src/py/data.json')
+fetch('/bewertungen')
 
     .then(response => response.json())
     .then(jsonData => {
         
         // Durchlaufe die "zimmer"-Daten
-        Object.values(jsonData.rating).forEach(rating => {
+        jsonData.forEach(review => {
 
             if(rating.approved === 1){
                 const container = document.createElement('div');
@@ -14,7 +14,7 @@ fetch('./src/py/data.json')
     
                 const stars = document.createElement('div');
                 stars.classList.add('stars');
-                stars.textContent = `${rating.stars}`;
+                stars.textContent = `${review.stars}`;
                 container.appendChild(stars);
     
     

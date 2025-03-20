@@ -1,35 +1,37 @@
 // script.js
-fetch('./src/py/data.json')
-
+fetch('/rooms-list')
     .then(response => response.json())
     .then(jsonData => {
         
-        // Durchlaufe die "zimmer"-Daten
-        Object.values(jsonData.zimmer).forEach(zimmer => {
+        jsonData.forEach(hotelroom => {
             const container = document.createElement('div');
             container.classList.add('tile');
 
-
+     
             const image = document.createElement('div');
-            image.classList.add('image');
-            image.textContent = '';
+            if(hotelroom.kategorie === "Standard"){
+                image.classList.add('image-standard');
+            }else if(hotelroom.kategorie === "Luxus"){
+                image.classList.add('image-luxus');
+            }else if(hotelroom.kategorie === "Premium"){
+                image.classList.add('image-premium');
+            }
+           
             container.appendChild(image);
-
 
             const title = document.createElement('div');
             title.classList.add('title');
-            title.textContent = `${zimmer.category} (${zimmer.type})`;
+            title.textContent = `${hotelroom.roomname} (${hotelroom.kategorie})`;
             container.appendChild(title);
-
 
             const price = document.createElement('div');
             price.classList.add('price');
-            price.textContent = `${zimmer.preis}`;
+            price.textContent = `${(hotelroom.preis)} €`;
             container.appendChild(price);
 
             const description = document.createElement('div');
             description.classList.add('description');
-            description.textContent = `${zimmer.desc}`;
+            description.textContent = hotelroom.description || "No description available"; 
             container.appendChild(description);
 
             document.querySelector('.tile-container').appendChild(container);

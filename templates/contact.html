@@ -9,7 +9,8 @@
     <title>FUNREST</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/logo.png') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static',filename='login.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='contact.css') }}" />
+     <script src="static/js/mail.js"></script>
 </head>
 
 <body>
@@ -23,26 +24,36 @@
                 <li class="item_header"><a href="#">Bewertungen</a></li>
                 <li class="item_header"><a href="#">Über uns</a></li>
             </ul>
+            <button type="button" class="button_header" onclick="setlocation('login')">Anmeldung</button>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main class="content">
         <div class="contentinsel">
-            <form class="form" method="POST">
-                <span class="input-span">
-                    <label for="username" class="label">Nutzername / Email</label>
-                    <input type="text" name="username" id="username" /></span>
-                <span class="input-span">
-                    <label for="password" class="label">Password</label>
-                    <input type="password" name="password" id="password" /></span>
-                <span class="span" id="forget"><a href="./forget">Passwort vergessen?</a></span>
-                <input class="submit" type="submit" value="Log in" />
-                <span class="span">Ich habe noch keinen Account? <a href="./register">Hier regristieren</a></span>
+            <form class="form" id="email-form">
+                <div class="inputfields">
+                    <span class="input-span">
+                        Vorname
+                        <input type="text" placeholder="" name="vorname" id="vorname" required/>
+                    </span>
+                    <span class="input-span">
+                        Nachname
+                        <input type="text" name="nachname" id="nachname" placeholder="" required/>
+                    </span>
+                    <span class="input-span">
+                        Email
+                        <input type="text" name="email" id="email" placeholder="" required/>
+                    </span>
+                    <span class="input-span">
+                        Nachricht
+                        <textarea id="nachricht" name="nachricht" rows="4" cols="50" required></textarea>
+                    </span>
+                </div>
+                <input class="submit" type="submit" value="Senden" />
             </form>
         </div>
     </main>
-
     <!-- Footer -->
     <footer>
         <div class="footer">
@@ -54,7 +65,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
         function setlocation(url){
             window.location.assign(url)

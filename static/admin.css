@@ -1,0 +1,25 @@
+
+.button-list{
+    button{
+        height: 100px;
+        width: 300px;
+        border-radius: 3em;
+        margin: 1em;
+        border: none;
+        
+    }
+    
+    button:hover{
+        cursor: pointer;
+        background-color: #c7c7c7;
+    }
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: 5em;
+    padding: 4em;
+    justify-content: center;
+
+}

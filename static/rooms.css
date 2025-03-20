@@ -15,13 +15,22 @@
         .title{
             font-weight: 700;
         }
-        .image{
-            /* background-color: grey; */
+        .image-standard, .image-luxus, .image-premium {
             aspect-ratio: 3/2;
             margin-bottom: 1em;
-            background-image: url('./assets/dummy/hotelzimmer2.jpg');
+            
             background-size: contain;
         }
+        .image-standard{
+            background-image: url('./assets/dummy/hotelzimmer_standard.jpg');
+        }
+        .image-luxus{
+            background-image: url('./assets/dummy/hotelzimmer_Luxus.jpg');
+        }
+        .image-premium{
+            background-image: url('./assets/dummy/hotelzimmer_premium.jpg');
+        }
+
         .description{
             color: var(--textcolor);
         }
@@ -29,5 +38,59 @@
             font-weight: 700;
         }
     }
-    
 }
+
+.admin-tile-container{
+    display: flex ;
+    flex-direction: column ;
+    .tile{
+        background: white;
+        border-radius: 4px;
+        margin: 2em;
+        padding: 1em;
+        color: black;
+        max-height: 200px;
+        display: flex;
+        justify-content: space-between;
+    
+        .title{
+            font-weight: 700;
+        }
+        .image-standard, .image-luxus, .image-premium {
+            /* aspect-ratio: 3/2; */
+            margin-bottom: 1em;
+            
+            background-size: contain;
+        }
+        .image-standard{
+            background-image: url('./assets/dummy/hotelzimmer_standard.jpg');
+        }
+        .image-luxus{
+            background-image: url('./assets/dummy/hotelzimmer_Luxus.jpg');
+        }
+        .image-premium{
+            background-image: url('./assets/dummy/hotelzimmer_premium.jpg');
+        }
+
+        .description{
+            color: var(--textcolor);
+        }
+        .price{
+            font-weight: 700;
+        }
+
+        .tile-content{
+            width: 70%;
+        }
+        .deleteButton, .editButton{
+            width: 150px;
+            height: 50px;
+        }
+        .buttonContainer{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+
