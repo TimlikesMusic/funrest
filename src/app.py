@@ -117,7 +117,7 @@ def agb_page():
 @app.route('/bewertungen')
 def bewertungen_page():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute('SELECT * FROM bewertungen;')
+    cursor.execute('SELECT * FROM review;')
 
     bewertungen_list = cursor.fetchall()
     return json.dumps(bewertungen_list)
@@ -147,6 +147,10 @@ def leistungen_page():
 @app.route('/reviews')
 def reviews_page():
     return render_template('reviews.html')
+
+@app.route('/reviews_user')
+def reviewsUser_page():
+    return render_template('reviews_user.html')
  
 @app.route('/rooms')
 def rooms_page():

@@ -1,0 +1,49 @@
+    
+.review-tile-container{
+    display: flex;
+    flex-direction: column;
+    padding: 6em 10em;
+    width: 50%;
+    .review-tile{
+        background: white;
+        border-radius: 4px;
+        margin: 2em;
+        padding: 1em;
+        color: black;
+    
+        .title{
+            font-weight: 700;
+        }
+    }
+    
+}
+
+.user-review-container{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    .create-panel{
+        height: 600px;
+        width: 500px;
+        background-color: white;
+        position: sticky;
+        top: 12em;
+        align-self: flex-start;
+        padding: 2em;
+        border-radius: 3em;
+        color: black;
+        form{
+            display: flex;
+            flex-direction: column;
+            input{
+                margin-bottom: 2em;
+            }
+            button{
+                height: 3em;
+            }
+        }
+    }
+}
+

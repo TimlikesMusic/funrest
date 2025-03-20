@@ -1,11 +1,9 @@
     
-.tile-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
+.review-tile-container{
+    display: flex;
+    flex-direction: column;
     padding: 6em 10em;
-    .tile{
+    .review-tile{
         background: white;
         border-radius: 4px;
         margin: 2em;
@@ -13,17 +11,6 @@
         color: black;
     
         .title{
-            font-weight: 700;
-        }
-        .image{
-            background-color: grey;
-            aspect-ratio: 3/2;
-            margin-bottom: 1em;
-        }
-        .description{
-            color: var(--textcolor);
-        }
-        .price{
             font-weight: 700;
         }
     }

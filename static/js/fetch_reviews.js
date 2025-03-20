@@ -7,30 +7,30 @@ fetch('/bewertungen')
         // Durchlaufe die "zimmer"-Daten
         jsonData.forEach(review => {
 
-            if(rating.approved === 1){
+            // if(rating.approved === 1){
                 const container = document.createElement('div');
-                container.classList.add('tile');
+                container.classList.add('review-tile');
     
     
-                const stars = document.createElement('div');
-                stars.classList.add('stars');
-                stars.textContent = `${review.stars}`;
-                container.appendChild(stars);
+                // const stars = document.createElement('div');
+                // stars.classList.add('stars');
+                // stars.textContent = `${review.stars}`;
+                // container.appendChild(stars);
     
     
                 const title = document.createElement('div');
                 title.classList.add('title');
-                title.textContent = `${rating.title}`;
+                title.textContent = `${review.reviewtitle}`;
                 container.appendChild(title);
     
     
                 const description = document.createElement('div');
                 description.classList.add('description');
-                description.textContent = `${rating.description}`;
+                description.textContent = `${review.reviewdescription}`;
                 container.appendChild(description);
 
-                document.querySelector('.tile-container').appendChild(container);
-            }
+                document.querySelector('.review-tile-container').appendChild(container);
+            // }
            
 
             //const description = document.createElement('div');

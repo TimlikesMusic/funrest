@@ -9,7 +9,7 @@
     <title>FUNREST</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='assets/logo.png') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='index.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static',filename='reviews.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='reviews_user.css') }}" />
 </head>
 
 <body>
@@ -30,11 +30,24 @@
     <!-- Main Content -->
     <main class="content">
 
-        <div class="review-tile-container">
-        
-            <script src="static/js/fetch_reviews.js"></script>
+        <div class="user-review-container">
+            <div class="create-panel">
+                <form action="">
+                    <label for="titel">Titel</label>
+                    <input type="text">
+
+                    <label for="description">Beschreibung</label>
+                    <input type="text" name="description" id="">
+                    <p></p>
+                    <button id="submit">Senden</button>
+                </form>
+            </div>
+            <div class="review-tile-container">
             
+                <script src="static/js/fetch_reviews.js"></script>
+            </div>
         </div>
+        
 
     </main>
 
