@@ -91,6 +91,8 @@ def logout():
 
 @app.route('/')
 def homepage():
+    userid_cookie = request.cookies.get("_user_id")
+    print(userid_cookie)
     return render_template('index.html')
     
 
